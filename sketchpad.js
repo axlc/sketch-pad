@@ -5,9 +5,7 @@
     // Once entered, new grid should be generated in same total space as before (such as 960px)
 var retracted = true;
 
-$(document).ready(function() {
-    // Code for the pull-tab. Will go elsewhere eventually.
-
+function toggleOptionsVisible() {
     $('.pull-tab').on("click",function() {
         if(retracted) {
             $('.buttons-panel').slideToggle();
@@ -22,6 +20,27 @@ $(document).ready(function() {
             });
         }
     });
+}
 
-    // Set width of container div to be 80% of the page, centered
+function initializeDivGrid(sideLength) {
+    // var $divGridContainer = $('div-grid-container');
+    // var $gridCell = $("");
+    for(var i = 0; i < sideLength; i++) {
+        for(var j = 0; j < sideLength; j++) {
+                $('.div-grid-container').append("<div class='grid-cell'></div>");
+        }
+    }
+}
+
+function startHoverEffect() {
+    $('.grid-cell').mouseenter(function() {
+        $(this).css("background-color", "#385737");
+    });
+}
+
+$(document).ready(function() {
+
+    toggleOptionsVisible();
+    initializeDivGrid(16);
+    startHoverEffect();
 });

@@ -1,33 +1,13 @@
-<!-- To Do:
-    x Make it exist
-        x Set up skeleton for page content
-            x container div for grid //sketchpad.js will be responsible for populating this. It only holds the divgrid.
-            x container div for buttons
-                x clear grid
-                x apply style
-                x radio buttons
-                  x Default color = #385737
-                  x 10% darker black each pass
-                  x random colors assigned
-                  x user specified hex colors
-
-    Make it work
-        populate the container div with 16x16 grid
-        set default behavior for style options
-
-    Make it work well
-        Make sure user can't enter junk data in color field
-    Make it pretty
-        x Hide the radio buttons and reset buttons using a sliding panel into the top of the page
-        Hash out a nice looking color scheme with greens and blues and blacks maybe?
-    -->
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="sketchpad.css">
     <script type="text/javascript" src="jquery1.11.2.js"></script>
     <script type="text/javascript" src="sketchpad.js"></script>
+
     <title>sketch-pad (Project Odin)</title>
 </head>
 <body>
@@ -46,8 +26,33 @@
         <p class="slider"><div class="pull-tab">Options</div></p>
     </div>
     <div class="space"></div>
-    <div class="divGrid-container">
+    <div class="div-grid-container">
     </div>
     <h1>sketch-pad!</h1>
 </body>
 </html>
+
+<!-- To Do:
+    x Make it exist
+        x Set up skeleton for page content
+            x container div for grid //sketchpad.js will be responsible for populating this. It only holds the divgrid.
+            x container div for buttons
+                x clear grid
+                x apply style
+                x radio buttons
+                  x Default color = #385737
+                  x 10% darker black each pass
+                  x random colors assigned
+                  x user specified hex colors
+
+    Make it work
+        x populate the container div with 16x16 grid
+        x make the grid change color on mouseenter
+        set default behavior for style options
+
+    Make it work well
+        Make sure user can't enter junk data in color field
+    Make it pretty
+        x Hide the radio buttons and reset buttons using a sliding panel into the top of the page
+        Hash out a nice looking color scheme with greens and blues and blacks maybe?
+    -->
