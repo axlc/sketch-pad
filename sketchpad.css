@@ -1,51 +1,79 @@
-.body {
-    margin: 0 auto;
-    padding: 0;
-}
-
 .buttons-panel {
-    background: #ffffbd;
     height: 120px;
     width: 600px;
     display: none;
+
+    left: 0;
+    right: 0;
     margin-left: auto;
     margin-right: auto;
+
+    position: absolute;
+
+    background: #ffffbd;
 }
 
 .slider {
+    width: 600px;
+
+    left: 0;
+    right: 0;
     margin-left: auto;
     margin-right: auto;
-    padding: 0;
+
     border-top: solid 2px #cc0000;
-    width: 600px;
+
+    position: absolute;
 }
 
 .pull-tab {
     display: block;
-    position: relative;
+    position: absolute;
     width: 400px;
     height: 20px;
-    color: #fff;
-    background: #c00;
-    text-decoration: none;
-    border-bottom-left-radius: 5px;
 
-    -moz-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    -moz-border-bottom-right-radius: 5px;
+
+    left: 0;
+    right: 0;
     margin-left: auto;
     margin-right: auto;
 
-    -webkit-box-shadow: 0 0 8px #FFD700;
-    -moz-box-shadow: 0 0 8px #FFD700;
-    box-shadow: 0 0 8px #FFD700;
-    cursor: pointer;
+    color: #fff;
+    background: #c00;
 
     text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
 }
 
 .buttons {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.space {
+    position: relative;
+    height: 22px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1000;
+}
+
+h1 {
+    font-size: 6em;
+    text-align: center;
+}
+
+.divGrid-container {
+    width: 80%;
+    height: 80vh;
+
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #385737;
 }

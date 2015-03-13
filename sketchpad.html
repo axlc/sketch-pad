@@ -1,6 +1,6 @@
 <!-- To Do:
-    Make it exist
-        Set up skeleton for page content
+    x Make it exist
+        x Set up skeleton for page content
             x container div for grid //sketchpad.js will be responsible for populating this. It only holds the divgrid.
             x container div for buttons
                 x clear grid
@@ -31,20 +31,23 @@
     <title>sketch-pad (Project Odin)</title>
 </head>
 <body>
-    <div class="buttons-panel">
-        <div class="buttons">
-            <input type="radio" name="style" value="default" checked="checked"><span>Default color</span><br>
-            <input type="radio" name="style" value="10-percent-darker"><span>10% Darker on each pass</span> <br>
-            <input type="radio" name="style" value="random"><span>Random colors on each pass</span><br>
-            <input type="radio" name="style" value="user"><span>User Specified:</span>
-            <input type="text"  name="userColor" value="#385737"><br>
-            <button type="button" value="apply-style">Apply Style</button>
-            <button type="button" value="reset">Reset Grid</button>
+    <div class="options-panel">
+        <div class="buttons-panel">
+            <div class="buttons">
+                <input type="radio" name="style" value="default" checked="checked"><span>Default color</span><br>
+                <input type="radio" name="style" value="gradient"><span>10% Darker on each pass</span> <br>
+                <input type="radio" name="style" value="random"><span>Random colors on each pass</span><br>
+                <input type="radio" name="style" value="user"><span>User Specified:</span>
+                <input type="text"  name="userColor" value="#385737"><br>
+                <button type="button" value="apply-style">Apply Style</button>
+                <button type="button" value="reset">Reset Grid</button>
+            </div>
         </div>
+        <p class="slider"><div class="pull-tab">Options</div></p>
     </div>
-    <p class="slider"><div class="pull-tab">Options</div></p>
-
-    <div class="container">
+    <div class="space"></div>
+    <div class="divGrid-container">
     </div>
+    <h1>sketch-pad!</h1>
 </body>
 </html>

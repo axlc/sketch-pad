@@ -3,11 +3,25 @@
 // Add a button to the top of the screen which will clear the grid
     // This should also give a dialog box allowing the user how many squares to user per side of grid
     // Once entered, new grid should be generated in same total space as before (such as 960px)
+var retracted = true;
 
 $(document).ready(function() {
     // Code for the pull-tab. Will go elsewhere eventually.
+
     $('.pull-tab').on("click",function() {
-        $('.buttons-panel').slideToggle();
+        if(retracted) {
+            $('.buttons-panel').slideToggle();
+            $('.pull-tab, .slider').animate({top: '120px'}, function() {
+                retracted = false;
+            });
+        }
+        else {
+            $('.buttons-panel').slideToggle();
+            $('.pull-tab, .slider').animate({top: '0px'}, function() {
+                retracted = true;
+            });
+        }
     });
-    // Draw the initial grid of 16x16 squares
+
+    // Set width of container div to be 80% of the page, centered
 });
