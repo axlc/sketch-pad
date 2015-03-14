@@ -15,10 +15,9 @@
         <div class="buttons-panel">
             <div class="buttons">
                 <input type="radio" name="style" value="default" checked="checked"><span>Default color</span><br>
-                <input type="radio" name="style" value="gradient"><span>10% Darker on each pass</span> <br>
-                <input type="radio" name="style" value="random"><span>Random colors on each pass</span><br>
                 <input type="radio" name="style" value="user"><span>User Specified:</span>
-                <input type="text"  name="style" value="#385737"><br>
+                <input type="text"  name="userColor" value="#385737"><br>
+                <input type="radio" name="style" value="random"><span>Random colors on each pass</span><br>
                 <button id="apply-style">Apply Style</button>
                 <button id="reset">Reset Grid</button>
             </div>
@@ -31,29 +30,3 @@
     <h1>sketch-pad!</h1>
 </body>
 </html>
-
-<!-- To Do:
-    x Make it exist
-        x Set up skeleton for page content
-            x container div for grid //sketchpad.js will be responsible for populating this. It only holds the divgrid.
-            x container div for buttons
-                x clear grid
-                x apply style
-                x radio buttons
-                  x Default color = #385737
-                  x 10% darker black each pass
-                  x random colors assigned
-                  x user specified hex colors
-
-    Make it work
-        x populate the container div with 16x16 grid
-        x make the grid change color on mouseenter
-        set default behavior for all style options
-
-    Make it work well
-        Make sure user can't enter junk data in any fields
-        Make it work faster for numbers above 50 on sideLength
-    Make it prettier
-        x Hide the radio buttons and reset buttons using a sliding panel into the top of the page
-        x Hash out a color scheme with greens and blues and blacks maybe? //nice looking comes later. I'm no designer.
-    -->

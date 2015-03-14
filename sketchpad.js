@@ -1,15 +1,10 @@
-// Create a 16x16 grid of square divs inside the container div
-// Set up a hover effect so it changes the color of the square when mouseenter, leaving a pixelated trail through the divgrid
-// Add a button to the top of the screen which will clear the grid
-    // This should also give a dialog box allowing the user how many squares to user per side of grid
-    // Once entered, new grid should be generated in same total space as before (such as 960px)
 var retracted = true;
 
 function toggleOptionsVisible() {
     $('.pull-tab').on("click",function() {
         if(retracted) {
             $('.buttons-panel').slideToggle();
-            $('.pull-tab, .slider').animate({top: '120px'}, function() {
+            $('.pull-tab, .slider').animate({top: '90px'}, function() {
                 retracted = false;
             });
         }
@@ -30,13 +25,20 @@ function initializeDivGrid(sideLength) {
     for(var i = 0; i < sideLength * sideLength; i++) {
         $('.div-grid-container').append("<div class='grid-cell'></div>");
     }
-
+    startHoverEffect("#385737");
 }
 
-function startHoverEffect() {
+function startHoverEffect(newHexColor) {
     $('.grid-cell').mouseenter(function() {
-        $(this).css("background-color", "#385737");
+        if(newHexColor == "random") {
+            var randHexColor = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+            $(this).css("background-color", randHexColor);
+        }
+        else {
+            $(this).css("background-color", newHexColor);
+        }
     });
+    return;
 }
 
 function changeCellSize(sideLength) {
@@ -54,20 +56,32 @@ function reInitializeDivGrid() {
         while(newSideLength < 1 || newSideLength > 50) // Current computer can handle up to 50 without stuttering. Current computer is a potato-tier laptop from 2006.
             newSideLength = prompt("Enter a side length 1-50: ");
 
-        //alert(newSideLength);
         initializeDivGrid(newSideLength);
         changeCellSize(newSideLength);
-        startHoverEffect(); //I think I have to re call this because the mouseenter event listener is tied to the grid-cells which were removed.
+        changeStyle();
 
     });
     return;
 }
 
 function changeStyle() {
-    $('#apply-style').click(function() {
+    $('#apply-style, #reset').click(function() {
         var whichRadio = $("input[name=style]:checked").val();
+        var newHexColor = "#385737"; // This is the default color
 
-        alert(whichRadio);
+        if (whichRadio == "default") {
+            startHoverEffect(newHexColor);
+        }
+        else if (whichRadio == "user") {
+            newHexColor = $("input[name=userColor]").val();
+            startHoverEffect(newHexColor);
+        }
+        else if (whichRadio == "random") {
+            startHoverEffect("random");
+        }
+        else {
+            startHoverEffect(newHexColor);
+        }
     });
     return;
 }
@@ -76,8 +90,7 @@ $(document).ready(function() {
 
     toggleOptionsVisible();
     initializeDivGrid(16);
-    startHoverEffect();
-    reInitializeDivGrid();
     changeStyle();
+    reInitializeDivGrid();
 
 });
