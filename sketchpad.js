@@ -23,13 +23,14 @@ function toggleOptionsVisible() {
 }
 
 function initializeDivGrid(sideLength) {
-    // var $divGridContainer = $('div-grid-container');
-    // var $gridCell = $("");
-    for(var i = 0; i < sideLength; i++) {
-        for(var j = 0; j < sideLength; j++) {
-                $('.div-grid-container').append("<div class='grid-cell'></div>");
-        }
+    if($('.grid-cell').length > 0) {
+        $('.grid-cell').remove();
     }
+
+    for(var i = 0; i < sideLength * sideLength; i++) {
+        $('.div-grid-container').append("<div class='grid-cell'></div>");
+    }
+
 }
 
 function startHoverEffect() {
@@ -38,9 +39,34 @@ function startHoverEffect() {
     });
 }
 
+function changeCellSize(sideLength) {
+    var width = 100/sideLength;
+    var height = $('.div-grid-container').height()/sideLength;
+
+    $('.grid-cell').css({"width"  : width  + '%'});
+    $('.grid-cell').css({"height" : height + 'px'});
+}
+
+function reInitializeDivGrid() {
+    $('#reset').click(function() {
+        var newSideLength = 0;
+
+    while(newSideLength < 1 || newSideLength > 50) // Current computer can handle up to 50 without stuttering. Current computer is a potato-tier laptop from 2006.
+        newSideLength = prompt("Enter a side length 1-50: ");
+
+    //alert(newSideLength);
+    initializeDivGrid(newSideLength);
+    changeCellSize(newSideLength);
+    startHoverEffect(); //I think I have to re call this because the mouseenter event listener is tied to the grid-cells which were removed.
+
+    });
+    return;
+}
+
 $(document).ready(function() {
 
     toggleOptionsVisible();
     initializeDivGrid(16);
     startHoverEffect();
+    reInitializeDivGrid();
 });
