@@ -51,14 +51,23 @@ function reInitializeDivGrid() {
     $('#reset').click(function() {
         var newSideLength = 0;
 
-    while(newSideLength < 1 || newSideLength > 50) // Current computer can handle up to 50 without stuttering. Current computer is a potato-tier laptop from 2006.
-        newSideLength = prompt("Enter a side length 1-50: ");
+        while(newSideLength < 1 || newSideLength > 50) // Current computer can handle up to 50 without stuttering. Current computer is a potato-tier laptop from 2006.
+            newSideLength = prompt("Enter a side length 1-50: ");
 
-    //alert(newSideLength);
-    initializeDivGrid(newSideLength);
-    changeCellSize(newSideLength);
-    startHoverEffect(); //I think I have to re call this because the mouseenter event listener is tied to the grid-cells which were removed.
+        //alert(newSideLength);
+        initializeDivGrid(newSideLength);
+        changeCellSize(newSideLength);
+        startHoverEffect(); //I think I have to re call this because the mouseenter event listener is tied to the grid-cells which were removed.
 
+    });
+    return;
+}
+
+function changeStyle() {
+    $('#apply-style').click(function() {
+        var whichRadio = $("input[name=style]:checked").val();
+
+        alert(whichRadio);
     });
     return;
 }
@@ -69,4 +78,6 @@ $(document).ready(function() {
     initializeDivGrid(16);
     startHoverEffect();
     reInitializeDivGrid();
+    changeStyle();
+
 });
